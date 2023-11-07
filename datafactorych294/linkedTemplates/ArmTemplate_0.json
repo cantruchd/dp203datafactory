@@ -55,7 +55,7 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"url": "https://storageaccountch2948.blob.core.windows.net/csv/Log-1.csv",
+							"url": "https://storageaccountch2948.blob.core.windows.net/csv/Customer/Customer01.csv",
 							"method": "GET",
 							"headers": {}
 						}
