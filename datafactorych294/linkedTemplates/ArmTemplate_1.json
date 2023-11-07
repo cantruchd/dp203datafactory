@@ -1230,9 +1230,7 @@
 								"parameters": {}
 							},
 							"fieldList": [
-								"itemName",
-								"itemType",
-								"lastModified"
+								"childItems"
 							],
 							"storeSettings": {
 								"type": "AzureBlobFSReadSettings",
