@@ -1,0 +1,25 @@
+{
+	"name": "12-webActivities",
+	"properties": {
+		"activities": [
+			{
+				"name": "webActivities",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://storageaccountch2948.blob.core.windows.net/csv/Log-1.csv",
+					"method": "GET"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
