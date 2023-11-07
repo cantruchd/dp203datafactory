@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactorych294"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics2_connectionString": {
+			"value": ""
+		},
+		"appvm_server_password": {
+			"value": ""
+		},
+		"pooldb_Sql_connectionString": {
+			"value": ""
+		},
+		"storageconnection_accountKey": {
+			"value": ""
+		},
+		"appvm_server_properties_typeProperties_host": {
+			"value": "C:\\Users\\vmadmin\\Downloads\\nginx-1.24.0\\nginx-1.24.0\\logs"
+		},
+		"appvm_server_properties_typeProperties_userId": {
+			"value": "vmadmin"
+		},
+		"storageconnection_properties_typeProperties_url": {
+			"value": "https://storageaccountch2948.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
