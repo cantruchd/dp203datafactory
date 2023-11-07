@@ -1,0 +1,40 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "pooldb_Sql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Remote_addr",
+				"type": "varchar"
+			},
+			{
+				"name": "Time_local",
+				"type": "varchar"
+			},
+			{
+				"name": "Request",
+				"type": "varchar"
+			},
+			{
+				"name": "Status",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Bytes",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ServerLogs"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
