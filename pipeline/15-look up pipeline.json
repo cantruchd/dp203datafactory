@@ -32,8 +32,64 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "VariableCompanyName",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "lookupStoreProc",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "CompanyName",
+					"value": {
+						"value": "@activity('lookupStoreProc').output.firstRow.CompanyName",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "VariableSalesPerson",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "lookupStoreProc",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "SalesPerson",
+					"value": {
+						"value": "@activity('lookupStoreProc').output.firstRow.SalesPerson",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"CompanyName": {
+				"type": "String"
+			},
+			"SalesPerson": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
