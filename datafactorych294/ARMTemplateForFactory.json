@@ -1108,6 +1108,39 @@
 										"enableStaging": false,
 										"translator": {
 											"type": "TabularTranslator",
+											"mappings": [
+												{
+													"source": {
+														"name": "CustomerID",
+														"type": "String"
+													},
+													"sink": {
+														"name": "CustomerID",
+														"type": "int",
+														"precision": 10
+													}
+												},
+												{
+													"source": {
+														"name": "CompanyName",
+														"type": "String"
+													},
+													"sink": {
+														"name": "CompanyName",
+														"type": "nvarchar"
+													}
+												},
+												{
+													"source": {
+														"name": "SalesPerson",
+														"type": "String"
+													},
+													"sink": {
+														"name": "SalesPerson",
+														"type": "nvarchar"
+													}
+												}
+											],
 											"typeConversion": true,
 											"typeConversionSettings": {
 												"allowDataTruncation": true,
