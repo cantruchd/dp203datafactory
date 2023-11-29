@@ -1,0 +1,51 @@
+{
+	"name": "08_dataflow_metrics",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "stagingmetricstream"
+				}
+			],
+			"sinks": [
+				{
+					"name": "stagingoutputstream"
+				}
+			],
+			"transformations": [
+				{
+					"name": "selectColumnStream"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          total as integer,",
+				"          minimum as integer,",
+				"          maximum as integer,",
+				"          average as integer,",
+				"          resourceId as string,",
+				"          time as string,",
+				"          metricName as string,",
+				"          timeGrain as string,",
+				"          count as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false) ~> stagingmetricstream",
+				"stagingmetricstream select(mapColumn(",
+				"          average,",
+				"          time,",
+				"          metricName",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectColumnStream",
+				"selectColumnStream sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     preCommands: [],",
+				"     postCommands: []) ~> stagingoutputstream"
+			]
+		}
+	}
+}
