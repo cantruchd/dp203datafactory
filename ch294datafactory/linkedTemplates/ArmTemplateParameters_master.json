@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "ch294datafactory"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
@@ -23,8 +26,8 @@
 		"storageconnection_accountKey": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1_accountKey": {
-			"value": ""
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://sinkch294eastus.dfs.core.windows.net/"
 		},
 		"appvm_server_properties_typeProperties_host": {
 			"value": "C:\\Users\\vmadmin\\Downloads\\nginx-1.24.0\\nginx-1.24.0\\logs"
@@ -34,9 +37,6 @@
 		},
 		"storageconnection_properties_typeProperties_url": {
 			"value": "https://storageaccountch2948.dfs.core.windows.net/"
-		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
-			"value": "https://sinkch294eastus.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"value": ""
