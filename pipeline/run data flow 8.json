@@ -25,6 +25,90 @@
 					},
 					"traceLevel": "Fine"
 				}
+			},
+			{
+				"name": "codpy data sink",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "08_dataflow_metrics",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.json",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['average']"
+								},
+								"sink": {
+									"name": "Average",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['time']"
+								},
+								"sink": {
+									"name": "MetricTime",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['metricName']"
+								},
+								"sink": {
+									"name": "Metricname",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "stagingoutput",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "WebMetricsTable",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
