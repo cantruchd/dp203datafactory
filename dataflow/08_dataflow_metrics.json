@@ -5,11 +5,19 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "stagingmetricdataset",
+						"type": "DatasetReference"
+					},
 					"name": "stagingmetricstream"
 				}
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "stagingoutput",
+						"type": "DatasetReference"
+					},
 					"name": "stagingoutputstream"
 				}
 			],
@@ -31,7 +39,9 @@
 				"          count as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false) ~> stagingmetricstream",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> stagingmetricstream",
 				"stagingmetricstream select(mapColumn(",
 				"          average,",
 				"          time,",
@@ -41,10 +51,11 @@
 				"     skipDuplicateMapOutputs: true) ~> selectColumnStream",
 				"selectColumnStream sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
+				"     umask: 0022,",
 				"     preCommands: [],",
-				"     postCommands: []) ~> stagingoutputstream"
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> stagingoutputstream"
 			]
 		}
 	}
