@@ -846,12 +846,12 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Json1')]",
+			"name": "[concat(parameters('factoryName'), '/InsightMetricsDataaset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "storageconnection",
+					"referenceName": "AzureDataLakeStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -859,13 +859,14 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileSystem": "json"
+						"folderPath": "resourceId=/SUBSCRIPTIONS/306A4B99-9D3F-4A32-A9B9-89C8E6589FEF/RESOURCEGROUPS/APP-GRP/PROVIDERS/MICROSOFT.WEB/SITES/WEBAPPCH294",
+						"fileSystem": "insights-metrics-pt1m"
 					}
 				},
 				"schema": {}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/storageconnection')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
 			]
 		}
 	]
