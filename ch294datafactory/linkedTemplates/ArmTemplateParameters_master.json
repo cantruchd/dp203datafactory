@@ -38,9 +38,6 @@
 		"storageconnection_properties_typeProperties_url": {
 			"value": "https://storageaccountch2948.dfs.core.windows.net/"
 		},
-		"BlobTrigger_properties_typeProperties_scope": {
-			"value": "/subscriptions/306a4b99-9d3f-4a32-a9b9-89c8e6589fef/resourceGroups/dp203/providers/Microsoft.Storage/storageAccounts/sinkch294eastus"
-		},
 		"containerUri": {
 			"value": ""
 		},
