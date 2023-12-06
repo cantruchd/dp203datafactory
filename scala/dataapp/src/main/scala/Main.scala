@@ -1,5 +1,8 @@
-@main def hello: Unit =
-  println("Hello world!")
-  println(msg)
+@main def dataApp() = 
 
-def msg = "I was compiled by Scala 3. :)"
+  val numbers:List[Int] = List(10,20,30,20,50)
+
+  println("The head of the list is "+numbers.head)
+
+  println(numbers.indexOf(20))
+  numbers.foreach{println}
